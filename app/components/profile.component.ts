@@ -7,9 +7,11 @@ import {GithubApi} from '../api/github.api';
     templateUrl: `profile.component.html`
 })
 export class ProfileComponent {
+  user:any[];
+
   constructor (private _githubApi: GithubApi) {
     this._githubApi.getUser().subscribe(user => {
-      console.log(user);
+      this.user = user;
     });
   }
 }
