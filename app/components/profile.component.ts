@@ -8,10 +8,17 @@ import {GithubApi} from '../api/github.api';
 })
 export class ProfileComponent {
   user:any[];
+  repos:any[];
 
   constructor (private _githubApi: GithubApi) {
     this._githubApi.getUser().subscribe(user => {
       this.user = user;
     });
+
+    this._githubApi.getRepos().subscribe(repos => {
+      this.repos = repos;
+    });
+
+
   }
 }
